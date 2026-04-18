@@ -1,4 +1,5 @@
 USB-Uncensored-LLM ⚡
+
 USB-Uncensored-LLM est un environnement d’IA local entièrement hors ligne, sans dépendances, prêt à l’emploi, conçu pour fonctionner directement depuis votre disque dur local ou un USB/SSD portable. Il évite les installations complexes en exécutant nativement de grands modèles de langage directement sur votre matériel, sans connexion Internet.
 Avec une architecture unifiée , vous pouvez initialiser vos modèles d’IA une seule fois et choisir de les conserver sur votre système ou de les emporter avec vous sur des PC Windows, macOS et Linux.
 🚀 Fonctionnalités principales
@@ -15,15 +16,25 @@ Avant de préparer votre support, vérifiez que vous disposez de :
 
 📂 Architecture des dossiers
 Le projet est structuré pour isoler strictement les exécutables de chaque système d’exploitation tout en regroupant de façon sécurisée les poids volumineux des modèles afin d’économiser l’espace de stockage portable.
+
 [Clé USB portable]
+
  ├── 📁 Linux      # Installateurs et lanceurs hors ligne natifs pour Ubuntu/Debian
+ 
  ├── 📁 Mac        # Installateurs et lanceurs hors ligne natifs pour macOS
+ 
  ├── 📁 Windows    # Menus d’interface automatiques hors ligne natifs pour Windows
+ 
  └── 📁 Shared     # Système de données unifié
+ 
       ├── 📁 bin         (Contient les exécutables isolés : ollama-windows.exe, ollama-darwin...)
+      
       ├── 📁 chat_data   (Contient l’historique persistant des conversations multiplateforme)
+      
       ├── 📁 models      (HuggingFace GGUF Weights et mappage de la base de données locale)
+      
       └── 📁 python      (Environnement Python portable isolé)
+      
 
 🧠 Bibliothèque de modèles d’IA sélectionnés
 Cette clé USB inclut un installateur sélectionné pour les meilleurs modèles non censurés, utilisables localement, disponibles aujourd’hui sur le marché open source :
@@ -31,6 +42,7 @@ Cette clé USB inclut un installateur sélectionné pour les meilleurs modèles 
 2.	Gemma 4 E4B Ultra Uncensored Heretic (~5.34 GO): Un fine-tuning "heretic" qui force agressivement la conformité à toutes les requêtes utilisateur, quel que soit le contenu ou la légalité.
 3.	Qwen 3.5 9B Uncensored Aggressive (~5.2 GO): Un modèle de raisonnement bien plus grand, très compétent, avec une adhérence stricte à des réponses brutes et non biaisées.
 4.	Modèles personnalisés: L’installateur permet de télécharger n’importe quel .gguf directement depuis HuggingFace vers le moteur de la clé USB.
+
 
 ⚙️ Guide de démarrage rapide
 Étape 1 : Initialiser le moteur
@@ -48,6 +60,7 @@ Ouvrez le dossier du système concerné et exécutez le script start :
 •	Linux: bash Linux/start.sh
 Le moteur démarrera de manière sécurisée en arrière-plan, et votre navigateur web par défaut ouvrira automatiquement l’interface de chat servie en local.
 
+
 🏠 Installation sur disque local
 Même si ce projet est optimisé pour une utilisation portable sur USB, il fonctionne très bien comme installation légère d’IA locale sur votre ordinateur principal.
 Comment installer en local :
@@ -58,16 +71,19 @@ Comment installer en local :
 5.	Exécutez start-fast-chat.bat pour commencer.
 Avantage: L’exécution depuis un SSD interne est nettement plus rapide que depuis une clé USB, ce qui permet un chargement presque instantané des modèles d’IA.
 
+
 📱 Accès mobile LAN
 Si vous voulez utiliser cette IA puissante depuis votre téléphone, tranquillement depuis votre canapé :
 1.	Assurez-vous que le PC qui exécute le script start et votre téléphone sont sur le même réseau WiFi.
 2.	La fenêtre du terminal détectera automatiquement votre machine hôte et affichera une adresse IP de Network Access (par exemple, http://192.168.1.15:3333).
 3.	Saisissez simplement cette URL dans le navigateur de votre téléphone (Safari/Chrome). Le serveur Python personnalisé redirige directement les requêtes mobiles vers la clé USB. (Remarque : si les pages ne se chargent pas, vérifiez que le pare-feu Windows autorise les connexions entrantes sur le port 3333).
 
+
 🛠️ Dépannage
 •	Le script se ferme instantanément sous Windows: Vous avez probablement activé les anciens Windows App Execution Aliases, ce qui trompe le système. Lancez le script depuis l’invite de commandes, ou faites un clic droit sur le fichier .bat puis choisissez "Run as Administrator".
 •	"Ollama Engine Not Found": Vous avez essayé d’exécuter le script start avant que le script install ne télécharge le logiciel de base pour votre système. Exécutez l’installateur de votre système d’exploitation!
 •	Vitesses de génération lentes: Votre modèle est trop volumineux pour la RAM de votre PC hôte. Relancez install.bat et sélectionnez le modèle Gemma 2 2B Abliterated , qui fonctionne rapidement même sur des machines plus anciennes.
+
 
 Avertissement : USB-Uncensored-LLM est conçu pour une liberté de calcul sans compromis. En utilisant des modèles ablative, le système ne fera pas la morale, ne donnera pas de leçons et ne refusera pas vos prompts. Veuillez l’utiliser avec responsabilité.
 USB-Uncensored-LLM
